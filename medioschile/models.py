@@ -5,7 +5,7 @@ from django.db import models
 from django.db import models
 import datetime
 YEAR_CHOICES = []
-for r in range(1800, (datetime.datetime.now().year+1)):
+for r in range(1900, (datetime.datetime.now().year+1)):
     YEAR_CHOICES.append((r,r))
 # Create your models here.
 

@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"B",
+				"BASE_DIR"
+			],
+			[
 				"Calc",
 				"CalcA"
 			],
@@ -29,19 +33,28 @@
 			}
 		},
 		{
-			"file": "mediamapper/settings.py",
+			"file": ".gitignore",
 			"settings":
 			{
-				"buffer_size": 3145,
+				"buffer_size": 699,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "README.md",
+			"settings":
+			{
+				"buffer_size": 1560,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "medioschile/apps.py",
+			"file": "medioschile/admin.py",
 			"settings":
 			{
-				"buffer_size": 97,
+				"buffer_size": 915,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		}
@@ -112,6 +125,12 @@
 	],
 	"file_history":
 	[
+		"/home/felipe/mediamapper/mediamapper/mediamapper/medioschile/media/uno",
+		"/home/felipe/mediamapper/mediamapper/mediamapper/mediamapper/lo.log",
+		"/home/felipe/mediamapper/mediamapper/mediamapper/mediamapper/settings.py",
+		"/home/felipe/mediamapper/mediamapper/mediamapper/.gitignore",
+		"/home/felipe/mediamapper/mediamapper/mediamapper/medioschile/apps.py",
+		"/home/felipe/mediamapper/mediamapper/mediamapper/README.md",
 		"/home/felipe/Dropbox/Notes/irma.note",
 		"/home/felipe/Descargas/Firebase Full Kit V1 /freshcodestechnology-firebase-flutter-kit-009aa7968aac/README.md",
 		"/home/felipe/Taller/djangobot/djangobot/djangobot/settings.py",
@@ -180,7 +199,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -196,8 +215,8 @@
 						"selection":
 						[
 							[
-								5218,
-								5218
+								1664,
+								1664
 							]
 						],
 						"settings":
@@ -209,34 +228,32 @@
 						"translation.y": 1995.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "mediamapper/settings.py",
+					"file": ".gitignore",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3145,
+						"buffer_size": 699,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1129,
-								1129
+								57,
+								57
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Git Formats/Git Ignore.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 114.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
@@ -244,19 +261,47 @@
 				},
 				{
 					"buffer": 2,
-					"file": "medioschile/apps.py",
+					"file": "README.md",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 97,
+						"buffer_size": 1560,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								1559,
+								1559
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "medioschile/admin.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 915,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								117,
+								117
 							]
 						],
 						"settings":
@@ -267,7 +312,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 3,
 					"type": "text"
 				}
 			]
