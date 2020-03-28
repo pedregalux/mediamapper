@@ -62,5 +62,5 @@ coverage.xml
 *.tmlanguage.cache 
 *.tmPreferences.cache 
 *.stTheme.cache 
-mediamapper.sublime-workspace 
-mediamapper.sublime-project
+*.sublime-workspace 
+*.sublime-project
