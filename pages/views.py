@@ -3,16 +3,16 @@ from django.shortcuts import render
 
 # Create your views here.
 def home_view(request, *args, **kwargs):
-	print(request.user)
-	print(request.META.get("REMOTE_ADDR"))
-	return HttpResponse("Home")
+	# print(request.user)
+	# print(request.META.get("REMOTE_ADDR"))
+	return render(request, "home.html", {})
 
-def sobre_view(*args, **kwargs):
-	print(request.user)
-	print(request.META.get("REMOTE_ADDR"))
-	return HttpResponse("Sobre")
+def sobre_view(request, *args, **kwargs):
+	# print(request.user)
+	# print(request.META.get("REMOTE_ADDR"))
+	return render(request, "sobre.html", {})
 
-def contact_view(*args, **kwargs):
-	print(request.user)
-	print(request.META.get("REMOTE_ADDR"))
-	return HttpResponse("Contacto")
+def contacto_view(request, *args, **kwargs):
+	# print(request.user)
+	# print(request.META.get("REMOTE_ADDR"))
+	return render(request, "contacto.html", {})
