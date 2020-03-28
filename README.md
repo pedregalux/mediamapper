@@ -8,7 +8,7 @@ El proyecto Mapa de Medios fue un intento por crear una base de datos abierta pa
 
 En la idea original y como parte de su desarrollo consideramos de vital importancia que la estructua permitiera mapear las relaciones de los dueños de los medios con otras industrias. Esto como parte del espíritu de Poderopedia de transparentar las relaciones entre politic@s, empresari@s y otros.
 
-Está desarrollado en Django/Python. En este repositorio está sólo el backend usando como modelo para los datos las características de los medios en Chile. El frontend está en desarrollo y se hará con Bulma o Bootstrap.
+Está desarrollado en Django/Python. En este repositorio está completo el backend usando como modelo para los datos las características de los medios en Chile. El frontend está en desarrollo y se irá actualizando.
 
 Paz y Software Libre.
 
