@@ -3,6 +3,9 @@
 	[
 		{
 			"path": "."
+		},
+		{
+			"path": "/home/felipe/mediamapper/resp/media-mapper-master"
 		}
 	]
 }
