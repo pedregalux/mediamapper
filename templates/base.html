@@ -1,4 +1,4 @@
-
+{% load static %}
 <!DOCTYPE html>
 <html>
     <head>
@@ -9,7 +9,8 @@
         <meta  name="description" content="Registro de medios, sus propietarios, relaciones y negocios"/>
         <meta  name="keywords" content="medios, mapa, Chile, propiedad, dueños, periódicos, revistas, canales, radios, digitales"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" href="{% static 'css/application.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'assets/bootstrap.css' %}" />
+
     </head>
 
     <body>
@@ -24,6 +25,10 @@
 
 		{% endblock %}
 
-       
+
+
+<script type="text/javascript" src="{% static 'assets/jquery.slim.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/bootstrap.bundle.min.js' %}"></script>
+
     </body>
 </html>
