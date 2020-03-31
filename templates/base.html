@@ -1,9 +1,29 @@
+
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Mapa de Medios: Propietarios de medios y sus negocios</title>
-</head>
-<body>
-{% block content %}{% endblock %}
-</body>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Mapa de Medios: Propietarios de medios y sus negocios</title>
+        <meta  name="author" content="felipe.perry@gmx.com" />
+        <meta  name="description" content="Registro de medios, sus propietarios, relaciones y negocios"/>
+        <meta  name="keywords" content="medios, mapa, Chile, propiedad, dueños, periódicos, revistas, canales, radios, digitales"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/application.css' %}" />
+    </head>
+
+    <body>
+        <!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+
+        {% include 'navbar.html' %}
+
+
+		{% block content %}
+
+		{% endblock %}
+
+       
+    </body>
 </html>
