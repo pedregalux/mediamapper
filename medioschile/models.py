@@ -15,7 +15,7 @@ class Ejecutivo(models.Model):
 			verbose_name = 'Ejecutivo de Medio'
 			verbose_name_plural = 'Ejecutivos de Medios'
 	ejecutivo = models.CharField("Ejecutivo", max_length=255, unique=True)
-	def __unicode__(self):
+	def __str__(self):
 		return self.ejecutivo
 
 class Empresario(models.Model):
@@ -23,7 +23,7 @@ class Empresario(models.Model):
 			verbose_name = 'Miembro Directorio'
 			verbose_name_plural = 'Miembros de Directorios'
 	empresario = models.CharField("Miembro de Directorio", max_length=255, unique=True)
-	def __unicode__(self):
+	def __str__(self):
 		return self.empresario
 
 class GeneroEscrito(models.Model):
@@ -31,7 +31,7 @@ class GeneroEscrito(models.Model):
 			verbose_name = 'Género Medio Escrito'
 			verbose_name_plural = 'Géneros Medios Escritos'
 	genero = models.CharField("Género", max_length=255, unique=True)
-	def __unicode__(self):
+	def __str__(self):
 		return self.genero
 
 class Region(models.Model):
@@ -39,7 +39,7 @@ class Region(models.Model):
 			verbose_name = 'Región'
 			verbose_name_plural = 'Regiones'
 	region = models.CharField("Región", max_length=255, unique=True)
-	def __unicode__(self):
+	def __str__(self):
 		return self.region
 
 class Comuna(models.Model):
@@ -47,7 +47,7 @@ class Comuna(models.Model):
 			verbose_name = 'Comuna'
 			verbose_name_plural = 'Comunas'
 	comuna = models.CharField("Comuna", max_length=255, unique=True)
-	def __unicode__(self):
+	def __str__(self):
 		return self.comuna
 
 class Ciudad(models.Model):
@@ -55,7 +55,7 @@ class Ciudad(models.Model):
 			verbose_name = 'Ciudad'
 			verbose_name_plural = 'Ciudades'
 	ciudad = models.CharField("Ciudad", max_length=255, unique=True)
-	def __unicode__(self):
+	def __str__(self):
 		return self.ciudad
 
 class Sector(models.Model):
@@ -63,7 +63,7 @@ class Sector(models.Model):
 			verbose_name = 'Sector de Actividad Socio'
 			verbose_name_plural = 'Sectores de Actividad Socios'
 	sector = models.CharField("Sector de Actividad Socios", max_length=255, unique=True)
-	def __unicode__(self):
+	def __str__(self):
 		return self.sector
 
 class Periodicidad(models.Model):
@@ -71,7 +71,7 @@ class Periodicidad(models.Model):
 			verbose_name = 'Periodicidad'
 			verbose_name_plural = 'Periodicidades'
 	periodicidad = models.CharField("Periodicidad", max_length=255, unique=True)
-	def __unicode__(self):
+	def __str__(self):
 		return self.periodicidad
 
 class TipoSociedad(models.Model):
@@ -79,7 +79,7 @@ class TipoSociedad(models.Model):
 			verbose_name = 'Tipo Sociedad'
 			verbose_name_plural = 'Tipos de Sociedades'
 	tiposociedad = models.CharField("Tipo Sociedad", max_length=255, unique=True)
-	def __unicode__(self):
+	def __str__(self):
 		return self.tiposociedad
 
 class PaisSociedad(models.Model):
@@ -87,7 +87,7 @@ class PaisSociedad(models.Model):
 			verbose_name = 'País'
 			verbose_name_plural = 'Paises'
 	paissociedad = models.CharField("Pais", max_length=255, unique=True)
-	def __unicode__(self):
+	def __str__(self):
 		return self.paissociedad
 
 class Autor(models.Model):
@@ -95,7 +95,7 @@ class Autor(models.Model):
 			verbose_name = 'Autor'
 			verbose_name_plural = 'Autores'
 	autor = models.CharField("Autor", max_length=255, unique=True)
-	def __unicode__(self):
+	def __str__(self):
 		return self.autor
 	datosautor = models.CharField("Datos Autor", max_length=255, null=True, blank=True)
 
@@ -104,7 +104,7 @@ class Fuente(models.Model):
 			verbose_name = 'Fuente'
 			verbose_name_plural = 'Fuentes'
 	fuente = models.CharField("Fuente", max_length=255, unique=True)
-	def __unicode__(self):
+	def __str__(self):
 		return self.fuente
 	descripcionfuente = models.TextField("Descripción", null=True, blank=True)
 	autor = models.ManyToManyField(Autor, verbose_name="Autor/es", blank=True, help_text="Actualice con F5")
@@ -115,7 +115,7 @@ class Sociedad(models.Model):
 			verbose_name = 'Socio'
 			verbose_name_plural = 'Socios'
 	sociedad = models.CharField("Socio", max_length=255, unique=True)
-	def __unicode__(self):
+	def __str__(self):
 		return self.sociedad
 	rutsociedad = models.CharField("R.U.T.", max_length=255, null=True, blank=True)
 	tiposociedad = models.ForeignKey(TipoSociedad, verbose_name="Tipo de Sociedad", related_name="sociedad_tiposociedad", null=True, blank=True, on_delete=models.PROTECT)
@@ -134,7 +134,7 @@ class Propietario(models.Model):
 			verbose_name = 'Empresa/Sociedad Controladora'
 			verbose_name_plural = 'Empresas/Sociedades Controladoras'
 	propietario = models.CharField("Empresa/Sociedad Controladora", max_length=255, unique=True)
-	def __unicode__(self):
+	def __str__(self):
 		return self.propietario
 	rutpropietario = models.CharField("R.U.T.", max_length=255, null=True, blank=True)
 	tiposociedad = models.ForeignKey(TipoSociedad, verbose_name="Tipo de Sociedad", related_name="propietario_tiposociedad", null=True, blank=True, on_delete=models.PROTECT)
@@ -165,7 +165,7 @@ class Escrito(models.Model):
 		)
 	tipo = models.CharField("Tipo", max_length=100, null=True, blank=True, choices=TIPO_MEDIO)
 	medio = models.CharField("Nombre", max_length=255, unique=True)
-	def __unicode__(self):
+	def __str__(self):
 		return self.medio
 	asociadoaescrito = models.ForeignKey('self', related_name="escrito_asociadoaescrito", verbose_name="Asociado a Medio Escrito", null=True, blank=True, on_delete=models.PROTECT)
 	asociadoaradio = models.ForeignKey('Radio', related_name="escrito_asociadoaradio", verbose_name="Asociado a Radio", null=True, blank=True, on_delete=models.PROTECT)
@@ -209,7 +209,7 @@ class GeneroRadio(models.Model):
 			verbose_name = 'Género Radio'
 			verbose_name_plural = 'Géneros Radios'
 	genero = models.CharField("Género", max_length=255, unique=True)
-	def __unicode__(self):
+	def __str__(self):
 		return self.genero
 
 class Radio(models.Model):
@@ -217,7 +217,7 @@ class Radio(models.Model):
 			verbose_name = 'Radio'
 			verbose_name_plural = 'Radios'
 	medio = models.CharField("Nombre", max_length=255, unique=True)
-	def __unicode__(self):
+	def __str__(self):
 		return self.medio
 	asociadoaescrito = models.ForeignKey('Escrito', related_name="radio_asociadoaescrito", verbose_name="Asociado a Medio Escrito", null=True, blank=True, on_delete=models.PROTECT)
 	asociadoaradio = models.ForeignKey('self', related_name="radio_asociadoaradio", verbose_name="Asociado a Radio", null=True, blank=True, on_delete=models.PROTECT)
@@ -258,7 +258,7 @@ class GeneroCanalTV(models.Model):
 			verbose_name = 'Género Canal TV'
 			verbose_name_plural = 'Géneros Canales TV'
 	genero = models.CharField("Género", max_length=255, unique=True)
-	def __unicode__(self):
+	def __str__(self):
 		return self.genero
 
 class CanalTV(models.Model):
@@ -272,7 +272,7 @@ class CanalTV(models.Model):
 		)
 	tipo = models.CharField("Tipo", max_length=100, null=True, blank=True, choices=TIPO)
 	medio = models.CharField("Nombre", max_length=255, unique=True)
-	def __unicode__(self):
+	def __str__(self):
 		return self.medio
 	asociadoaescrito = models.ForeignKey('Escrito', related_name="canaltv_asociadoaescrito", verbose_name="Asociado a Medio Escrito", null=True, blank=True, on_delete=models.PROTECT)
 	asociadoaradio = models.ForeignKey('Radio', related_name="canaltv_asociadoaradio", verbose_name="Asociado a Radio", null=True, blank=True, on_delete=models.PROTECT)
@@ -307,7 +307,7 @@ class GeneroMedioDigital(models.Model):
 			verbose_name = 'Género Medio Digital'
 			verbose_name_plural = 'Géneros Medios Digitales'
 	genero = models.CharField("Género", max_length=255, unique=True)
-	def __unicode__(self):
+	def __str__(self):
 		return self.genero
 
 class MedioDigital(models.Model):
@@ -315,7 +315,7 @@ class MedioDigital(models.Model):
 			verbose_name = 'Medio Digital'
 			verbose_name_plural = 'Medios Digitales'
 	medio = models.CharField("Nombre", max_length=255, unique=True)
-	def __unicode__(self):
+	def __str__(self):
 		return self.medio
 	sitioweb = models.URLField("Sitio WEB", max_length=255, null=True, blank=True, help_text="http://...")
 	genero = models.ForeignKey(GeneroMedioDigital, related_name="mediodigital_genero", null=True, blank=True, on_delete=models.PROTECT)
@@ -362,7 +362,7 @@ class Cargo(models.Model):
 			verbose_name = 'Cargo'
 			verbose_name_plural = 'Cargos'
 	cargo = models.CharField("Cargo", max_length=255, unique=True)
-	def __unicode__(self):
+	def __str__(self):
 		return self.cargo
 
 class CargoEjecutivo(models.Model):
@@ -382,7 +382,7 @@ class TipoDocumento(models.Model):
 			verbose_name = 'Tipo de Regulación'
 			verbose_name_plural = 'Tipos de Regulación'
 	tipodocumento = models.CharField("Tipo", max_length=255, unique=True)
-	def __unicode__(self):
+	def __str__(self):
 		return self.tipodocumento
 
 class Regulacion(models.Model):
