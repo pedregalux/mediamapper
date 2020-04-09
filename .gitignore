@@ -65,4 +65,4 @@ coverage.xml
 *.sublime-workspace 
 *.sublime-project
 
-prueba
+templates/notes.html
