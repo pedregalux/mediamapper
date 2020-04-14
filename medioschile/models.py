@@ -18,6 +18,23 @@ class Ejecutivo(models.Model):
 	def __str__(self):
 		return self.ejecutivo
 
+class Cargo(models.Model):
+	class Meta:
+			verbose_name = 'Cargo'
+			verbose_name_plural = 'Cargos'
+	cargo = models.CharField("Cargo", max_length=255, unique=True)
+	def __str__(self):
+		return self.cargo
+
+class CargoEjecutivo(models.Model):
+	class Meta:
+			verbose_name = 'Cargo Ejectutivo'
+			verbose_name_plural = 'Cargos Ejecutivos'
+	ejecutivocargo = models.ForeignKey(Ejecutivo, verbose_name="Ejecutivo", related_name="ejecutivo_cargo", null=True, blank=True, on_delete=models.PROTECT)
+	fechacargoinicio = models.DateField("Fecha Inicio Cargo", null=True, blank=True)
+	fechacargofin = models.DateField("Fecha Fin Cargo", null=True, blank=True)
+	cargo = models.ForeignKey(Cargo, verbose_name="Cargo", related_name="cargo_ejecutivo", null=True, blank=True, on_delete=models.PROTECT)
+
 class Empresario(models.Model):
 	class Meta:
 			verbose_name = 'Miembro Directorio'
@@ -200,6 +217,7 @@ class Escrito(models.Model):
 	propietario = models.ManyToManyField(Propietario, related_name="propietario_escrito", verbose_name="Empresa Controladora", max_length=255, blank=True, help_text="Actualice con F5")
 	fuentepropiedad = models.ForeignKey(Fuente, related_name="fuente_propiedad_escrito", verbose_name="Fuente Propiedad", null=True, blank=True, max_length=255, on_delete=models.PROTECT)
 	telefono = models.CharField("Teléfono", max_length=100, null=True, blank=True)
+	ejecutivocargodigital = models.ManyToManyField(CargoEjecutivo, related_name="ejecutivo_cargo_escrito", verbose_name="Ejecutivo", blank=True)
 	observaciones = models.TextField("Observaciones", null=True, blank=True)
 	anexos = models.TextField("Anexos", null=True, blank=True)
 	check = models.BooleanField("Terminado", default=None)
@@ -249,6 +267,7 @@ class Radio(models.Model):
 	propietario = models.ManyToManyField(Propietario, related_name="propietario_radio", verbose_name="Empresa Controladora", max_length=255, blank=True, help_text="Actualice con F5")
 	fuentepropiedad = models.ForeignKey(Fuente, related_name="fuente_propiedad_radio", verbose_name="Fuente Propiedad", null=True, blank=True, max_length=255, on_delete=models.PROTECT)
 	telefono = models.CharField("Teléfono", max_length=100, null=True, blank=True)
+	ejecutivocargoradio = models.ManyToManyField(CargoEjecutivo, related_name="ejecutivo_cargo_radio", verbose_name="Ejecutivo", blank=True)
 	observaciones = models.TextField("Observaciones", null=True, blank=True)
 	anexos = models.TextField("Anexos", null=True, blank=True)
 	check = models.BooleanField("Terminado", default=None)
@@ -295,9 +314,10 @@ class CanalTV(models.Model):
 	ciudad = models.ManyToManyField(Ciudad, verbose_name="Ciudad", related_name="canaltv_ciudad", blank=True, help_text="Actualice con F5 - Si ingresa la(s) comuna(s) correspondientes, no es necesario señalar la(s) ciudad(es).")
 	direccion = models.CharField("Dirección", max_length=255, blank=True, help_text="Calle-Nº-Comuna-Ciudad")
 	sitioweb = models.URLField("Sitio WEB", max_length=255, null=True, blank=True, help_text="http://...")
-	propietario = models.ManyToManyField(Propietario, related_name="propietario_canaltv", verbose_name="Empresa Controladora", max_length=255, blank=True, help_text="Actualice con F5")
+	propietario = models.ManyToManyField(Propietario, related_name="propietario_canaltv", verbose_name="Propietario/Controlador", max_length=255, blank=True, help_text="Actualice con F5")
 	fuentepropiedad = models.ForeignKey(Fuente, related_name="fuente_propiedad_canaltv", verbose_name="Fuente Propiedad", null=True, blank=True, max_length=255, on_delete=models.PROTECT)
 	telefono = models.CharField("Teléfono", max_length=100, null=True, blank=True)
+	ejecutivocargocanaltv = models.ManyToManyField(CargoEjecutivo, related_name="ejecutivo_cargo_canaltv", verbose_name="Ejecutivo", blank=True)
 	observaciones = models.TextField("Observaciones", null=True, blank=True)
 	anexos = models.TextField("Anexos", null=True, blank=True)
 	check = models.BooleanField("Terminado", default=None)
@@ -353,29 +373,10 @@ class MedioDigital(models.Model):
 	propietario = models.ManyToManyField(Propietario, related_name="propietario_mediodigital", verbose_name="Empresa Controladora", max_length=255, blank=True, help_text="Actualice con F5")
 	fuentepropiedad = models.ForeignKey(Fuente, related_name="fuente_propiedad_mediodigital", verbose_name="Fuente Propiedad", null=True, blank=True, max_length=255, on_delete=models.PROTECT)
 	telefono = models.CharField("Teléfono", max_length=100, null=True, blank=True)
+	ejecutivocargodigital = models.ManyToManyField(CargoEjecutivo, related_name="ejecutivo_cargo_digital", verbose_name="Ejecutivo", blank=True)
 	observaciones = models.TextField("Observaciones", null=True, blank=True)
 	anexos = models.TextField("Anexos", null=True, blank=True)
 	check = models.BooleanField("Terminado", default=None)
-
-class Cargo(models.Model):
-	class Meta:
-			verbose_name = 'Cargo'
-			verbose_name_plural = 'Cargos'
-	cargo = models.CharField("Cargo", max_length=255, unique=True)
-	def __str__(self):
-		return self.cargo
-
-class CargoEjecutivo(models.Model):
-	class Meta:
-			verbose_name = 'Cargo Ejectutivo'
-			verbose_name_plural = 'Cargos Ejecutivos'
-	ejecutivocargo = models.ForeignKey(Ejecutivo, verbose_name="Ejecutivo", related_name="ejecutivo_cargo", null=True, blank=True, on_delete=models.PROTECT)
-	fechacargo = models.DateField("Fecha", null=True, blank=True)
-	cargo = models.ForeignKey(Cargo, verbose_name="Cargo", related_name="cargo_ejecutivo", null=True, blank=True, on_delete=models.PROTECT)
-	escrito = models.ForeignKey(Escrito, null=True, blank=True, on_delete=models.PROTECT)
-	canaltv = models.ForeignKey(CanalTV, null=True, blank=True, on_delete=models.PROTECT)
-	radio = models.ForeignKey(Radio, null=True, blank=True, on_delete=models.PROTECT)
-	mediodigital = models.ForeignKey(MedioDigital, null=True, blank=True, on_delete=models.PROTECT)
 
 class TipoDocumento(models.Model):
 	class Meta:
