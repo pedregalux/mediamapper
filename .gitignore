@@ -10,8 +10,6 @@ pages/__pycache__
 medioschile/migrations/
 pages/migrations/
 
-manage.py
-
 # Backup files # 
 *.bak 
 
