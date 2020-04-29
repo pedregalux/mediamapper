@@ -165,7 +165,8 @@ class Propietario(models.Model):
 
 class PorcentajePropietario(models.Model):
 	class Meta:
-			verbose_name_plural = 'Porcentajes Socios'
+			verbose_name = 'Porcentaje Propietario'
+			verbose_name_plural = 'Porcentajes Propietarios'
 	socioporcentaje = models.ForeignKey(Sociedad, verbose_name="Socio", related_name="socio_porcentajep", null=True, blank=True, on_delete=models.PROTECT)
 	porcentajesocio = models.CharField("Porcentaje", max_length=255, null=True, blank=True)
 	fechaporcentaje = models.DateField("Fecha", null=True, blank=True)
