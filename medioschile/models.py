@@ -1,15 +1,19 @@
 from django.db import models
-
-# Create your models here.
-
-from django.db import models
 import datetime
+
+# Fix de fechas
 YEAR_CHOICES = []
 for r in range(1900, (datetime.datetime.now().year+1)):
     YEAR_CHOICES.append((r,r))
-# Create your models here.
 
+# Modelos Mediamapper Chile.
+# Debido a la complejidad y cantidad de datos, se ha privilegiado un enfoque de embudo, con una gran cantidad de datos posibles
+# que dejan abierta la posibilidad de ser utilizados o no.
+# Para lograr correspondencia en las relaciones de propiedad se crearon los modelos :
+# Sociedad: Sociedades o personas que tienen propiedad de una empresa controladora de medios.
+# Prpietarios: Para empresas que gerencias, dirigen y/o aparecen en muchos casos como dueñas de los medios por la falta de datos.
 
+# Ejecutivo es Director, Jefe de Prensa, Gerente, etc., personaje que trabaja en los medios.
 class Ejecutivo(models.Model):
 	class Meta:
 			verbose_name = 'Ejecutivo de Medio'
@@ -18,6 +22,7 @@ class Ejecutivo(models.Model):
 	def __str__(self):
 		return self.ejecutivo
 
+# Cargos posibles de un ejecutivo.
 class Cargo(models.Model):
 	class Meta:
 			verbose_name = 'Cargo'
@@ -26,6 +31,7 @@ class Cargo(models.Model):
 	def __str__(self):
 		return self.cargo
 
+# Relaciones Ejecutivos con cargos y detalle de fechas.
 class CargoEjecutivo(models.Model):
 	class Meta:
 			verbose_name = 'Cargo Ejectutivo'
@@ -35,6 +41,7 @@ class CargoEjecutivo(models.Model):
 	fechacargofin = models.DateField("Fecha Fin Cargo", null=True, blank=True)
 	cargo = models.ForeignKey(Cargo, verbose_name="Cargo", related_name="cargo_ejecutivo", null=True, blank=True, on_delete=models.PROTECT)
 
+# Miembros de directorios de empresas de medios.
 class Empresario(models.Model):
 	class Meta:
 			verbose_name = 'Miembro Directorio'
@@ -43,6 +50,7 @@ class Empresario(models.Model):
 	def __str__(self):
 		return self.empresario
 
+# Género de medios escritos.
 class GeneroEscrito(models.Model):
 	class Meta:
 			verbose_name = 'Género Medio Escrito'
@@ -51,6 +59,7 @@ class GeneroEscrito(models.Model):
 	def __str__(self):
 		return self.genero
 
+# Región donde está el medio.
 class Region(models.Model):
 	class Meta:
 			verbose_name = 'Región'
